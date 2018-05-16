@@ -24,8 +24,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        final_project.cpp
+        final_project.cpp \
+    myrect.cpp
 
-HEADERS  += final_project.h
+HEADERS  += final_project.h \
+    myrect.h
 
 FORMS    += final_project.ui
