@@ -29,15 +29,16 @@ int main(int argc, char *argv[])
     QGraphicsScene * scene = new QGraphicsScene();
 
     //create an item to put into the scene
-    MyRect * rect = new MyRect();
-    rect -> setRect(0,0,100,100);
+    MyRect * player = new MyRect();
+    player -> setRect(0,0,100,100);
 
     //add the item to scene
-    scene ->addItem(rect);
+    scene ->addItem(player);
+    scene -> setSceneRect(0,0,600,450);
 
     //only one item can respond to events at a time and that is the focus item
-    rect ->setFlag(QGraphicsItem::ItemIsFocusable); //makes rect focusable
-    rect -> setFocus(); //hey rect you are now the focused item so you will recieve all the keyboard events
+    player ->setFlag(QGraphicsItem::ItemIsFocusable); //makes rect focusable
+    player -> setFocus(); //hey rect you are now the focused item so you will recieve all the keyboard events
 
     //add a view and show it
     QGraphicsView * view = new QGraphicsView();
@@ -45,7 +46,9 @@ int main(int argc, char *argv[])
     view -> setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view -> setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view -> show();
+    view -> setFixedSize(600,450);
 
+    player -> setPos(view->width()/2, view->height() - player->rect().height());
 
     //Final_project w;
     //w.show();

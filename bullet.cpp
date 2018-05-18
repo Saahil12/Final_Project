@@ -1,5 +1,7 @@
 #include "bullet.h"
 #include <QTimer>
+#include <QDebug>
+#include <QGraphicsScene>
 
 Bullet::Bullet()
 {
@@ -20,4 +22,12 @@ void Bullet::move()
 {
     //move bullet up
     setPos(x(),y()-10);
+
+    //remove from the scene and then delete it to save memory
+    if (pos().y() + rect().height() < 0 ) //want to delete if bottom right of bullet goes out of scene
+    {
+        scene() -> removeItem(this);
+        delete this;
+        qDebug() << "Deleting bullet";
+    }
 }
