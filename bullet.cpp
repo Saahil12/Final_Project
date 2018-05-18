@@ -1,6 +1,5 @@
 #include "bullet.h"
 #include <QTimer>
-#include <QDebug>
 #include <QGraphicsScene>
 
 Bullet::Bullet()
@@ -28,6 +27,5 @@ void Bullet::move()
     {
         scene() -> removeItem(this);
         delete this;
-        qDebug() << "Deleting bullet";
     }
 }
