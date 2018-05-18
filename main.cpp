@@ -14,6 +14,12 @@
     Ex: keyPressEvent()
  event propagation system : order of key events
 */
+/*
+ signal is just a signal
+ slot is the reaction to the signal, usually a member function placed under public slots: in class
+        1.... have to inherit from QObject
+        2.... have to ass Q_OBJECT macro
+*/
 
 int main(int argc, char *argv[])
 {
@@ -36,6 +42,8 @@ int main(int argc, char *argv[])
     //add a view and show it
     QGraphicsView * view = new QGraphicsView();
     view -> setScene(scene);
+    view -> setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view -> setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view -> show();
 
 
