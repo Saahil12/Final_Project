@@ -3,18 +3,20 @@
 #include <QKeyEvent>
 #include <bullet.h>
 #include <QGraphicsScene>
-
+#include <enemy.h>
 #include <QDebug>
 
 void MyRect::keyPressEvent(QKeyEvent *event)
 {
     if (event -> key() == Qt::Key_Left)
     {
-        setPos(x()-10,y());
+        if (pos().x() >0)  //to stay on view
+        { setPos(x()-10,y()); }
     }
     else if (event -> key() == Qt::Key_Right)
     {
-        setPos(x()+10,y());
+        if (pos().x()+100 < 600) //to stay on view
+        { setPos(x()+10,y()); }
     }
     else if (event -> key() == Qt::Key_Up)
     {
@@ -31,4 +33,11 @@ void MyRect::keyPressEvent(QKeyEvent *event)
         bullet -> setPos(x()+45,y()); //set position at rectangles x & y
         scene() -> addItem(bullet); //add it to the scene
     }
+}
+
+void MyRect::spawn()
+{
+    //create an enemy
+    Enemy * enemy = new Enemy();
+    scene() -> addItem(enemy);
 }

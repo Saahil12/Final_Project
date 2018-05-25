@@ -3,6 +3,7 @@
 #include <QGraphicsScene>
 #include "myrect.h"
 #include <QGraphicsView>
+#include <QTimer>
 
 /*
  QGraphicsScene : a container for all your objects in the game (players and stuff)
@@ -50,6 +51,10 @@ int main(int argc, char *argv[])
 
     player -> setPos(view->width()/2, view->height() - player->rect().height());
 
+    //spawn enemies
+    QTimer * timer = new QTimer();
+    QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
+    timer -> start(2000); //2000ms so every 2 sec
     //Final_project w;
     //w.show();
 

@@ -1,11 +1,16 @@
-#include "bullet.h"
+#include "enemy.h"
 #include <QTimer>
 #include <QGraphicsScene>
+#include <stdlib.h> //for rand()
 
-Bullet::Bullet()
+Enemy::Enemy()
 {
-    //drew the bullet
-    setRect(0,0,10,50);
+    //set random position
+    int random_number = rand() % 500;
+    setPos(random_number,0);
+
+    //drew the enemy
+    setRect(0,0,100,100);
 
     //connect timer to bullet
     QTimer * timer = new QTimer(this);
@@ -17,10 +22,10 @@ Bullet::Bullet()
     timer -> start(50); //sets the timers time to every 50ms, thus when it's timeout signal will be emmited
 }
 
-void Bullet::move()
+void Enemy::move()
 {
-    //move bullet up
-    setPos(x(),y()-10);
+    //move enemy down
+    setPos(x(),y()+5);
 
     //remove from the scene and then delete it to save memory
     if (pos().y() + rect().height() < 0 ) //want to delete if bottom right of bullet goes out of scene
