@@ -19,7 +19,7 @@
  signal is just a signal
  slot is the reaction to the signal, usually a member function placed under public slots: in class
         1.... have to inherit from QObject
-        2.... have to ass Q_OBJECT macro
+        2.... have to add Q_OBJECT macro
 */
 
 int main(int argc, char *argv[])
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 
     //add the item to scene
     scene ->addItem(player);
-    scene -> setSceneRect(0,0,600,450);
+    scene -> setSceneRect(0,0,800,600);
 
     //only one item can respond to events at a time and that is the focus item
     player ->setFlag(QGraphicsItem::ItemIsFocusable); //makes rect focusable
@@ -47,9 +47,9 @@ int main(int argc, char *argv[])
     view -> setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view -> setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view -> show();
-    view -> setFixedSize(600,450);
+    view -> setFixedSize(800,600);
 
-    player -> setPos(view->width()/2, view->height() - player->rect().height());
+    player -> setPos(view->width()/2 - player->rect().width()/2, view->height() - player->rect().height());
 
     //spawn enemies
     QTimer * timer = new QTimer();

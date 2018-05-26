@@ -11,20 +11,20 @@ void MyRect::keyPressEvent(QKeyEvent *event)
     if (event -> key() == Qt::Key_Left)
     {
         if (pos().x() >0)  //to stay on view
-        { setPos(x()-10,y()); }
+        { setPos(x()-30,y()); }
     }
     else if (event -> key() == Qt::Key_Right)
     {
-        if (pos().x()+100 < 600) //to stay on view
-        { setPos(x()+10,y()); }
+        if (pos().x()+100 < 800) //to stay on view
+        { setPos(x()+30,y()); }
     }
     else if (event -> key() == Qt::Key_Up)
     {
-        setPos(x(),y()-10);
+        setPos(x(),y()-20);
     }
     else if (event -> key() == Qt::Key_Down)
     {
-        setPos(x(),y()+10);
+        setPos(x(),y()+20);
     }
     else if (event -> key() == Qt::Key_Space)
     {
