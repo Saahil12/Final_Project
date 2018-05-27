@@ -4,7 +4,6 @@
 #include "myrect.h"
 #include <QGraphicsView>
 #include <QTimer>
-
 /*
  QGraphicsScene : a container for all your objects in the game (players and stuff)
  QGraphicsItem is where objects are derived before going into the scene above

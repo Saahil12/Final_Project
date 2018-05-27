@@ -5,7 +5,7 @@
 #include <QGraphicsScene>
 #include <enemy.h>
 #include <QDebug>
-
+#include <QMediaPlayer> //for sounds
 void MyRect::keyPressEvent(QKeyEvent *event)
 {
     if (event -> key() == Qt::Key_Left)
@@ -32,6 +32,11 @@ void MyRect::keyPressEvent(QKeyEvent *event)
         Bullet * bullet = new Bullet();
         bullet -> setPos(x()+45,y()); //set position at rectangles x & y
         scene() -> addItem(bullet); //add it to the scene
+
+        //play bullet sound
+        QMediaPlayer * bullet_sound = new QMediaPlayer();
+        bullet_sound -> setMedia(QUrl("qrc:/sounds/bullet.wav"));
+        bullet_sound -> play();
     }
 }
 

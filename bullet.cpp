@@ -3,6 +3,7 @@
 #include <QGraphicsScene>
 #include <QList> //using for colliding_items
 #include "enemy.h"
+#include <QMediaPlayer>
 
 Bullet::Bullet()
 {
@@ -33,9 +34,13 @@ void Bullet::move()
     {
         if(typeid(*(colliding_items[x])) == typeid(Enemy))
         {
-            //remove both
+            //remove both & play explosion sound
             scene() -> removeItem(colliding_items[x]);
             scene() -> removeItem(this);
+
+            QMediaPlayer * explosion_sound = new QMediaPlayer();
+            explosion_sound -> setMedia(QUrl("qrc:/sounds/explosion.wav"));
+            explosion_sound -> play();
             //delete both
             delete colliding_items[x];
             delete this;

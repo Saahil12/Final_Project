@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+         multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -35,3 +36,6 @@ HEADERS  += final_project.h \
     enemy.h
 
 FORMS    += final_project.ui
+
+RESOURCES += \
+    resources.qrc
