@@ -6,11 +6,11 @@
 Enemy::Enemy()
 {
     //set random position
-    int random_number = rand() % 500;
+    int random_number = rand() % 740;
     setPos(random_number,0);
 
     //drew the enemy
-    setRect(0,0,100,100);
+    setRect(0,0,60,60);
 
     //connect timer to bullet
     QTimer * timer = new QTimer(this);
@@ -28,7 +28,7 @@ void Enemy::move()
     setPos(x(),y()+5);
 
     //remove from the scene and then delete it to save memory
-    if (pos().y() + rect().height() < 0 ) //want to delete if bottom right of bullet goes out of scene
+    if (pos().y() > scene()->height() ) //want to delete if bottom right of bullet goes out of scene
     {
         scene() -> removeItem(this);
         delete this;

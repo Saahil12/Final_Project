@@ -1,6 +1,8 @@
 #include "bullet.h"
 #include <QTimer>
 #include <QGraphicsScene>
+#include <QList> //using for colliding_items
+#include "enemy.h"
 
 Bullet::Bullet()
 {
@@ -19,6 +21,28 @@ Bullet::Bullet()
 
 void Bullet::move()
 {
+    //check if it is colliding with an enemy....if so, destroy both
+    //use collidingItem
+    QList<QGraphicsItem *> colliding_items = collidingItems(); //will return a list
+                                                              // of pointers to all the QgraphicItems that
+                                                              // the bullet is colliding with
+    //traverse collidingItems() to see if it is an enemy
+    //MAYBE USE ITERATORS HERE LATER
+    int n = colliding_items.size();
+    for (int x=0; x<n; x++)
+    {
+        if(typeid(*(colliding_items[x])) == typeid(Enemy))
+        {
+            //remove both
+            scene() -> removeItem(colliding_items[x]);
+            scene() -> removeItem(this);
+            //delete both
+            delete colliding_items[x];
+            delete this;
+            return; //so compiler doesn't try to run rest of move()
+        }
+    }
+
     //move bullet up
     setPos(x(),y()-10);
 

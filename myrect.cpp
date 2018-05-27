@@ -15,7 +15,7 @@ void MyRect::keyPressEvent(QKeyEvent *event)
     }
     else if (event -> key() == Qt::Key_Right)
     {
-        if (pos().x()+100 < 800) //to stay on view
+        if (pos().x()+ rect().width() < 800) //to stay on view
         { setPos(x()+30,y()); }
     }
     else if (event -> key() == Qt::Key_Up)
