@@ -24,7 +24,7 @@ Game::Game(QWidget *parent){
     //create a scene
     scene = new QGraphicsScene();
     scene -> setSceneRect(0,0,800,600);
-    //scene -> setBackgroundBrush(QBrush(QImage(":/images/spacebg.jpeg")));
+    scene -> setBackgroundBrush(QBrush(QImage(":/images/spacebg.jpeg")));
 
     //add a view and show it
     QGraphicsView * view = new QGraphicsView();
@@ -36,8 +36,7 @@ Game::Game(QWidget *parent){
 
     //create an item to put into the scene
     player = new Player();
-    player -> setRect(0,0,100,100);
-    player -> setPos(view->width()/2 - player->rect().width()/2, view->height() - player->rect().height());
+    player -> setPos(400, 500);
 
     //only one item can respond to events at a time and that is the focus item
     player ->setFlag(QGraphicsItem::ItemIsFocusable); //makes rect focusable

@@ -5,7 +5,7 @@
 #include <enemy.h>
 #include <QMediaPlayer> //for sounds
 
-Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){
+Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
 
     //set graphics
     setPixmap(QPixmap(":/images/player.png"));
@@ -20,7 +20,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     }
     else if (event -> key() == Qt::Key_Right)
     {
-        if (pos().x()+ rect().width() < 800) //to stay on view
+        if (pos().x()+ 100 < 800) //to stay on view
         { setPos(x()+30,y()); }
     }
     else if (event -> key() == Qt::Key_Up)
@@ -35,7 +35,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     {
         //create a bullet
         Bullet * bullet = new Bullet();
-        bullet -> setPos(x()+45,y()); //set position at rectangles x & y
+        bullet -> setPos(x()+69,y()); //set position at rectangles x & y
         scene() -> addItem(bullet); //add it to the scene
 
         //play bullet sound

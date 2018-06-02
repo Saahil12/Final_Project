@@ -11,7 +11,7 @@ extern Game * game; // there is an external global object called game
 Bullet::Bullet()
 {
     //drew the bullet
-    //setPixmap(QPixmap(":/images/"));
+    setPixmap(QPixmap(":/images/bullet.png"));
 
     //connect timer to bullet
     QTimer * timer = new QTimer(this);
@@ -58,7 +58,7 @@ void Bullet::move()
     setPos(x(),y()-10);
 
     //remove from the scene and then delete it to save memory
-    if (pos().y() + rect().height() < 0 ) //want to delete if bottom right of bullet goes out of scene
+    if (pos().y() + 10 < 0 ) //want to delete if bottom of bullet goes out of scene
     {
         scene() -> removeItem(this);
         delete this;
