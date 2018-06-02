@@ -14,7 +14,7 @@ try to recreate a version of Space Invaders using Qtcreator and C++
 
   Commit: Rect shots smaller rect bullets
   
-  ![img_8557](https://user-images.githubusercontent.com/38049808/40213083-74f9be04-5a08-11e8-8a37-928b98e13c51.jpg)
+  ![img_8557](https://user-images.githubusercontent.com/38049808/40869721-8b00b2b6-65d4-11e8-8140-94194d341ad2.jpg)
 
   Commit: Created Enemies that spawn
   
