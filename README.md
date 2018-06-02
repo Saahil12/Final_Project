@@ -19,3 +19,9 @@ try to recreate a version of Space Invaders using Qtcreator and C++
   Commit: Created Enemies that spawn
   
   <img width="624" alt="screen shot 2018-05-24 at 8 52 24 pm" src="https://user-images.githubusercontent.com/38049808/40525393-a325d7f4-5f94-11e8-986c-6d4c64a40ade.png">
+
+  Commit: Created Health and Score
+  Commit: Added pictures and backgrounds
+  
+ <img width="504" alt="screen shot 2018-06-01 at 7 40 47 pm" src="https://user-images.githubusercontent.com/38049808/40869669-19299eaa-65d4-11e8-8036-f0dba2b3a5cf.png">
+ 
