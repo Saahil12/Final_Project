@@ -4,11 +4,14 @@
 #include <QList> //using for colliding_items
 #include "enemy.h"
 #include <QMediaPlayer>
+#include "game.h"
+
+extern Game * game; // there is an external global object called game
 
 Bullet::Bullet()
 {
     //drew the bullet
-    setRect(0,0,10,50);
+    //setPixmap(QPixmap(":/images/"));
 
     //connect timer to bullet
     QTimer * timer = new QTimer(this);
@@ -34,6 +37,9 @@ void Bullet::move()
     {
         if(typeid(*(colliding_items[x])) == typeid(Enemy))
         {
+            //increase the score
+            game->score->increase_score();
+
             //remove both & play explosion sound
             scene() -> removeItem(colliding_items[x]);
             scene() -> removeItem(this);

@@ -2,6 +2,9 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <stdlib.h> //for rand()
+#include "game.h"
+
+extern Game * game;
 
 Enemy::Enemy()
 {
@@ -10,7 +13,7 @@ Enemy::Enemy()
     setPos(random_number,0);
 
     //drew the enemy
-    setRect(0,0,60,60);
+    setPixmap(QPixmap(":/images/enemy.png"));
 
     //connect timer to bullet
     QTimer * timer = new QTimer(this);
@@ -28,8 +31,9 @@ void Enemy::move()
     setPos(x(),y()+5);
 
     //remove from the scene and then delete it to save memory
-    if (pos().y() > scene()->height() ) //want to delete if bottom right of bullet goes out of scene
+    if (pos().y() > scene()->height() ) //want to delete if enemy goes out of scene
     {
+        game->health->decrease_health();
         scene() -> removeItem(this);
         delete this;
     }

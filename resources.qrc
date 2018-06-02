@@ -3,4 +3,9 @@
         <file>bullet.wav</file>
         <file>explosion.wav</file>
     </qresource>
+    <qresource prefix="/images">
+        <file>spacebg.jpeg</file>
+        <file>player.png</file>
+        <file>enemy.png</file>
+    </qresource>
 </RCC>

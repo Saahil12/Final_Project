@@ -1,12 +1,17 @@
-#include "myrect.h"
-#include <QDebug>
+#include "player.h"
 #include <QKeyEvent>
 #include <bullet.h>
 #include <QGraphicsScene>
 #include <enemy.h>
-#include <QDebug>
 #include <QMediaPlayer> //for sounds
-void MyRect::keyPressEvent(QKeyEvent *event)
+
+Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){
+
+    //set graphics
+    setPixmap(QPixmap(":/images/player.png"));
+}
+
+void Player::keyPressEvent(QKeyEvent *event)
 {
     if (event -> key() == Qt::Key_Left)
     {
@@ -40,7 +45,7 @@ void MyRect::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void MyRect::spawn()
+void Player::spawn()
 {
     //create an enemy
     Enemy * enemy = new Enemy();

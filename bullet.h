@@ -1,9 +1,9 @@
 #ifndef BULLET_H
 #define BULLET_H
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject> // needed for anything using signal and slots
 
-class Bullet: public QObject, public QGraphicsRectItem {
+class Bullet: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
     Bullet();

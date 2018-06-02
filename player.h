@@ -1,12 +1,14 @@
 #ifndef MYRECT_H
 #define MYRECT_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject> //to use signals and slots.... also include Q_OBJECT macro
+#include <QGraphicsItem>
 
-class MyRect: public QObject, public QGraphicsRectItem{
+class Player: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
+    Player(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
 
 public slots:

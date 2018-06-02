@@ -25,15 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        final_project.cpp \
-    myrect.cpp \
     bullet.cpp \
-    enemy.cpp
+    enemy.cpp \
+    player.cpp \
+    game.cpp \
+    score.cpp \
+    health.cpp
 
-HEADERS  += final_project.h \
-    myrect.h \
+HEADERS  += \
     bullet.h \
-    enemy.h
+    enemy.h \
+    player.h \
+    game.h \
+    score.h \
+    health.h
 
 FORMS    += final_project.ui
 
