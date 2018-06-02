@@ -31,6 +31,7 @@ void Bullet::move()
                                                               // of pointers to all the QgraphicItems that
                                                               // the bullet is colliding with
     //traverse collidingItems() to see if it is an enemy
+    //*****************************
     //MAYBE USE ITERATORS HERE LATER
     int n = colliding_items.size();
     for (int x=0; x<n; x++)

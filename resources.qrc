@@ -2,6 +2,7 @@
     <qresource prefix="/sounds">
         <file>bullet.wav</file>
         <file>explosion.wav</file>
+        <file>losing_health.mp3</file>
     </qresource>
     <qresource prefix="/images">
         <file>spacebg.jpeg</file>

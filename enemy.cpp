@@ -3,13 +3,15 @@
 #include <QGraphicsScene>
 #include <stdlib.h> //for rand()
 #include "game.h"
+#include <QMediaPlayer>
+#include <QList> //using for colliding_items
 
 extern Game * game;
 
 Enemy::Enemy()
 {
     //set random position
-    int random_number = rand() % 740;
+    int random_number = rand() % 720;
     setPos(random_number,0);
 
     //drew the enemy
@@ -27,6 +29,35 @@ Enemy::Enemy()
 
 void Enemy::move()
 {
+    //check if it is colliding with player....if so, destroy enemy & decrease health
+    //use collidingItem
+    QList<QGraphicsItem *> colliding_items = collidingItems(); //will return a list
+                                                              // of pointers to all the QgraphicItems that
+                                                              // the enemy is colliding with
+    //traverse collidingItems() to see if it is an enemy
+    //*****************************
+    //MAYBE USE ITERATORS HERE LATER
+    int n = colliding_items.size();
+    for (int x=0; x<n; x++)
+    {
+        if(typeid(*(colliding_items[x])) == typeid(Player))
+        {
+            //increase the score
+            game->health->decrease_health();
+
+            //remove enemy & play explosion sound
+            scene() -> removeItem(this);
+
+            QMediaPlayer * health_loss = new QMediaPlayer();
+            health_loss -> setMedia(QUrl("qrc:/sounds/losing_health.mp3"));
+            health_loss -> play();
+
+            //delete enemy
+            delete this;
+            return; //so compiler doesn't try to run rest of move()
+        }
+    }
+
     //move enemy down
     setPos(x(),y()+5);
 
@@ -36,5 +67,9 @@ void Enemy::move()
         game->health->decrease_health();
         scene() -> removeItem(this);
         delete this;
+
+        QMediaPlayer * health_loss = new QMediaPlayer();
+        health_loss -> setMedia(QUrl("qrc:/sounds/losing_health.mp3"));
+        health_loss -> play();
     }
 }
