@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <enemy.h>
 #include <QMediaPlayer> //for sounds
+#include <QDebug>
 
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){

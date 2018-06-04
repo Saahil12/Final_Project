@@ -7,7 +7,7 @@ Score::Score(QGraphicsItem *parent) :QGraphicsTextItem(parent){
 
     //draw the text box
     setPlainText("Score: " + QString::number(score));
-    setDefaultTextColor(Qt::red);
+    setDefaultTextColor(Qt::blue);
     setFont(QFont("times",25)); //change this later
 }
 

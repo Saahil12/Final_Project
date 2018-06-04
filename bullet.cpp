@@ -2,13 +2,12 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList> //using for colliding_items
-#include "enemy.h"
-#include <QMediaPlayer>
 #include "game.h"
+#include "enemy.h"
 
 extern Game * game; // there is an external global object called game
 
-Bullet::Bullet()
+Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     //drew the bullet
     setPixmap(QPixmap(":/images/bullet.png"));
@@ -34,32 +33,25 @@ void Bullet::move()
     //*****************************
     //MAYBE USE ITERATORS HERE LATER
     int n = colliding_items.size();
-    for (int x=0; x<n; x++)
-    {
-        if(typeid(*(colliding_items[x])) == typeid(Enemy))
+        for (int x=0; x<n; x++)
         {
-            //increase the score
-            game->score->increase_score();
+            if(typeid(*(colliding_items[x])) == typeid(Enemy))
+            {
+                //remove & delete bullet
+                scene() -> removeItem(this);
+                delete this;
 
-            //remove both & play explosion sound
-            scene() -> removeItem(colliding_items[x]);
-            scene() -> removeItem(this);
+                //enemy will be deleted in enemy.move() depending on enemy health
 
-            QMediaPlayer * explosion_sound = new QMediaPlayer();
-            explosion_sound -> setMedia(QUrl("qrc:/sounds/explosion.wav"));
-            explosion_sound -> play();
-            //delete both
-            delete colliding_items[x];
-            delete this;
-            return; //so compiler doesn't try to run rest of move()
+                return; //so compiler doesn't try to run rest of move()
+            }
         }
-    }
 
     //move bullet up
     setPos(x(),y()-10);
 
     //remove from the scene and then delete it to save memory
-    if (pos().y() + 10 < 0 ) //want to delete if bottom of bullet goes out of scene
+    if (pos().y() < 0 ) //want to delete if bottom of bullet goes out of scene
     {
         scene() -> removeItem(this);
         delete this;

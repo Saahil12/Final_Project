@@ -3,6 +3,7 @@
         <file>bullet.wav</file>
         <file>explosion.wav</file>
         <file>losing_health.mp3</file>
+        <file>game_over.mp3</file>
     </qresource>
     <qresource prefix="/images">
         <file>spacebg.jpeg</file>

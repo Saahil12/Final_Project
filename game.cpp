@@ -59,6 +59,6 @@ Game::Game(QWidget *parent){
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer -> start(2000); //2000ms so every 2 sec
 
-    show();
+
 }
 
