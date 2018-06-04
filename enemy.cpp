@@ -6,6 +6,9 @@
 #include <QList> //using for colliding_items
 #include "bullet.h"
 #include <QMediaPlayer>
+#include <iterator>
+#include <QDebug>
+#include <typeinfo>
 
 extern Game * game;
 
@@ -45,16 +48,14 @@ void Enemy::move()
 {
     //check if it is colliding with player....if so, destroy enemy & decrease health of player
     //use collidingItem
-    QList<QGraphicsItem *> colliding_items = collidingItems(); //will return a list
-                                                              // of pointers to all the QgraphicItems that
-                                                              // the enemy is colliding with
+    QList<QGraphicsItem *> colliding_items = this->collidingItems(); //will return a list
+                                                                     //of pointers to all the QgraphicItems that
+                                                                     //the enemy is colliding with
+    QList<QGraphicsItem *>::Iterator i = colliding_items.begin();
     //traverse collidingItems() to see if it is a player or bullet
-    //*****************************
-    //MAYBE USE ITERATORS HERE LATER
-    int n = colliding_items.size();
-    for (int x=0; x<n; ++x)
+    while(i != colliding_items.end())
     {
-        if(typeid(*(colliding_items[x])) == typeid(Player))
+        if ( typeid(**i) == typeid(Player))
         {
             //decrease the health
             game->health->decrease_health();
@@ -67,7 +68,7 @@ void Enemy::move()
             return; //so compiler doesn't try to run rest of move()
         }
 
-        if(typeid(*(colliding_items[x])) == typeid(Bullet))
+        else if (typeid(**i) == typeid(Bullet))
         {
             if (this -> get_enemy_health() >= 1)
             {
@@ -75,8 +76,8 @@ void Enemy::move()
                 this->decrease_enemy_health();
 
                 //remove & delete bullet
-                scene() -> removeItem(colliding_items[x]);
-                delete colliding_items[x];
+                scene() -> removeItem(*i);
+                delete *i;
             }
 
             else if (this -> get_enemy_health() == 0)
@@ -90,8 +91,8 @@ void Enemy::move()
                 explosion_sound -> play();
 
                 //remove & delete enemy and bullet
-                scene() -> removeItem(colliding_items[x]);
-                delete colliding_items[x];
+                scene() -> removeItem(*i);
+                delete *i;
 
                 //scene() -> removeItem(this);
                 delete this;
@@ -99,6 +100,7 @@ void Enemy::move()
                 return; //so compiler doesn't try to run rest of move()
             }
         }
+        ++i;
     }
 
     //move enemy down
