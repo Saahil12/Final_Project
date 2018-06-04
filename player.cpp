@@ -3,8 +3,8 @@
 #include <bullet.h>
 #include <QGraphicsScene>
 #include <enemy.h>
+#include <enemy2.h>
 #include <QMediaPlayer> //for sounds
-#include <QDebug>
 
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
@@ -51,7 +51,14 @@ void Player::keyPressEvent(QKeyEvent *event)
 
 void Player::spawn()
 {
-    //create an enemy
+    //create enemy
     Enemy * enemy = new Enemy();
     scene() -> addItem(enemy);
+}
+
+void Player::spawn2()
+{
+    //create enemy2
+    Enemy2 * enemy2 = new Enemy2();
+    scene() -> addItem(enemy2);
 }

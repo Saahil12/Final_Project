@@ -54,11 +54,15 @@ Game::Game(QWidget *parent){
     health -> setPos(health->x(), health->y()+25);
     scene -> addItem(health);
 
-    //spawn enemies
+    //spawn enemy
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer -> start(2000); //2000ms so every 2 sec
 
+    //spawn enemy2
+    QTimer * timer2 = new QTimer();
+    QObject::connect(timer2,SIGNAL(timeout()),player,SLOT(spawn2()));
+    timer2 -> start(9000); //9000ms so every 9 sec
 
 }
 

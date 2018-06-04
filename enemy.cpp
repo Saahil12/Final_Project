@@ -7,8 +7,7 @@
 #include "bullet.h"
 #include <QMediaPlayer>
 #include <iterator>
-#include <QDebug>
-#include <typeinfo>
+
 
 extern Game * game;
 

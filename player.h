@@ -13,6 +13,7 @@ public:
 
 public slots:
     void spawn();
+    void spawn2();
 };
 
 
