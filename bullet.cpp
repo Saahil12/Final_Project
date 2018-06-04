@@ -24,6 +24,7 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 
 void Bullet::move()
 {
+    /*
     //check if it is colliding with an enemy....if so, destroy both
     //use collidingItem
     QList<QGraphicsItem *> colliding_items = collidingItems(); //will return a list
@@ -41,11 +42,10 @@ void Bullet::move()
                 scene() -> removeItem(this);
                 delete this;
 
-                //enemy will be deleted in enemy.move() depending on enemy health
-
                 return; //so compiler doesn't try to run rest of move()
             }
         }
+        */
 
     //move bullet up
     setPos(x(),y()-10);

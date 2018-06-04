@@ -74,12 +74,14 @@ void Enemy::move()
                 //decrease enemy health
                 this->decrease_enemy_health();
 
-                //remove & delete bullet happens in bullet.move();
+                //remove & delete bullet
+                scene() -> removeItem(colliding_items[x]);
+                delete colliding_items[x];
             }
 
-            else if (this -> get_enemy_health() < 1)
+            else if (this -> get_enemy_health() == 0)
             {
-                //increase the score
+                //increase the players score
                 game->score->increase_score();
 
                 //play explosion sound
@@ -87,7 +89,11 @@ void Enemy::move()
                 explosion_sound -> setMedia(QUrl("qrc:/sounds/explosion.wav"));
                 explosion_sound -> play();
 
-                //remove & delete enemy
+                //remove & delete enemy and bullet
+                scene() -> removeItem(colliding_items[x]);
+                delete colliding_items[x];
+
+                //scene() -> removeItem(this);
                 delete this;
 
                 return; //so compiler doesn't try to run rest of move()
