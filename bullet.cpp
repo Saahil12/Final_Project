@@ -48,7 +48,7 @@ void Bullet::move()
         */
 
     //move bullet up
-    setPos(x(),y()-10);
+    setPos(x(),y()-15);
 
     //remove from the scene and then delete it to save memory
     if (pos().y() < 0 ) //want to delete if bottom of bullet goes out of scene

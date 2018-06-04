@@ -62,7 +62,6 @@ Game::Game(QWidget *parent){
     //spawn enemy2
     QTimer * timer2 = new QTimer();
     QObject::connect(timer2,SIGNAL(timeout()),player,SLOT(spawn2()));
-    timer2 -> start(9000); //9000ms so every 9 sec
-
+    timer2 -> start(7000); //7000ms so every 7 sec
 }
 

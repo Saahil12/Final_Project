@@ -4,7 +4,7 @@
 #include <stdlib.h> //for rand()
 #include "game.h"
 #include <QList> //using for colliding_items
-#include "bullet.h"
+#include "bullet_enemy2.h"
 #include <QMediaPlayer>
 #include <iterator>
 
@@ -15,7 +15,7 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     //set random position
     int random_number = rand() % 150;
-    setPos(820,random_number);
+    setPos(815,random_number);
 
     //drew the enemy
     setPixmap(QPixmap(":/images/enemy2.png"));
@@ -47,7 +47,12 @@ void Enemy2::move()
 {
 
     //move enemy left
-    setPos(x()-5,y());
+    setPos(x()-10,y());
+
+    //connect timer to enemy bullet
+    QTimer * timer2 = new QTimer(this);
+    connect(timer2,SIGNAL(timeout()),this,SLOT(fire()));
+    timer2 -> start(4000); //4000ms so every 4 sec
 
     //remove from the scene and then delete it to save memory
     if (pos().x() < -70 ) //want to delete if enemy goes out of scene
@@ -55,4 +60,12 @@ void Enemy2::move()
         scene() -> removeItem(this);
         delete this;
     }
+}
+
+void Enemy2::fire()
+{
+    //create a bullet
+    Bullet_Enemy2 * enemy_bullet = new Bullet_Enemy2();
+    enemy_bullet -> setPos(x()+30,y()+50);
+    scene() -> addItem(enemy_bullet); //add it to the scene
 }

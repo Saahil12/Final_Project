@@ -11,5 +11,6 @@
         <file>player.png</file>
         <file>bullet.png</file>
         <file>enemy2.png</file>
+        <file>enemy2_bullet.png</file>
     </qresource>
 </RCC>
