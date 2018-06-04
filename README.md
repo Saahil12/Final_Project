@@ -3,6 +3,10 @@
 ## Goal  
 try to recreate a version of Space Invaders using Qtcreator and C++
 
+## 10C implementations  
+  * #### Iterators:
+    used in move() function in enemy.cpp to traverse through a List  
+  
 ## Journal 
   Commit: Added a rect object to scene  
   
