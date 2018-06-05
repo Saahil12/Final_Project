@@ -23,14 +23,16 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
     //intitialize health
     enemy_health = 2;
 
-    //connect timer to bullet
+
     QTimer * timer = new QTimer(this);
-
-    //connect function allows you to connect certain signal with certain slot
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-        //this connects timeout signal from timer to move slot of the bullet
+    timer -> start(50);
 
-    timer -> start(50); //sets the timers time to every 50ms, thus when it's timeout signal will be emmited
+    //connect timer to enemy bullet
+    QTimer * timer2 = new QTimer(this);
+    connect(timer2,SIGNAL(timeout()),this,SLOT(fire()));
+    timer2 -> start(1000); //4000ms so every 4 sec
+
 }
 
 int Enemy2::get_enemy_health()
@@ -48,11 +50,6 @@ void Enemy2::move()
 
     //move enemy left
     setPos(x()-10,y());
-
-    //connect timer to enemy bullet
-    QTimer * timer2 = new QTimer(this);
-    connect(timer2,SIGNAL(timeout()),this,SLOT(fire()));
-    timer2 -> start(4000); //4000ms so every 4 sec
 
     //remove from the scene and then delete it to save memory
     if (pos().x() < -70 ) //want to delete if enemy goes out of scene

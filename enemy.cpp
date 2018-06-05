@@ -6,7 +6,6 @@
 #include <QList> //using for colliding_items
 #include "bullet.h"
 #include <QMediaPlayer>
-#include <iterator>
 
 
 extern Game * game;

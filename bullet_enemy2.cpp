@@ -12,18 +12,34 @@ Bullet_Enemy2::Bullet_Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapI
     //drew the bullet
     setPixmap(QPixmap(":/images/enemy2_bullet.png"));
 
-    //connect timer to bullet
+
     QTimer * timer = new QTimer(this);
-
-    //connect function allows you to connect certain signal with certain slot
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-        //this connects timeout signal from timer to move slot of the bullet
-
-    timer -> start(50); //sets the timers time to every 50ms, thus when it's timeout signal will be emmited
+    timer -> start(50);
 }
 
 void Bullet_Enemy2::move()
 {
+    QList<QGraphicsItem *> colliding_items2 = this->collidingItems();
+    QList<QGraphicsItem *>::Iterator j = colliding_items2.begin();
+
+    //traverse collidingItems() to see if it is the player
+    while(j != colliding_items2.end())
+    {
+        if ( typeid(**j) == typeid(Player))
+        {
+            //decrease the health
+            game->health->decrease_health();
+
+            //remove enemy & play explosion sound
+            scene() -> removeItem(this);
+
+            //delete the enemy bullet
+            delete this;
+            return; //so compiler doesn't try to run rest of move()
+        }
+        j++;
+    }
 
     //move bullet down
     setPos(x(),y()+10);

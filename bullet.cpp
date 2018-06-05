@@ -3,7 +3,7 @@
 #include <QGraphicsScene>
 #include <QList> //using for colliding_items
 #include "game.h"
-#include "enemy.h"
+#include "enemy2.h"
 
 extern Game * game; // there is an external global object called game
 
@@ -24,28 +24,26 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 
 void Bullet::move()
 {
-    /*
-    //check if it is colliding with an enemy....if so, destroy both
-    //use collidingItem
-    QList<QGraphicsItem *> colliding_items = collidingItems(); //will return a list
-                                                              // of pointers to all the QgraphicItems that
-                                                              // the bullet is colliding with
-    //traverse collidingItems() to see if it is an enemy
-    //*****************************
-    //MAYBE USE ITERATORS HERE LATER
-    int n = colliding_items.size();
-        for (int x=0; x<n; x++)
-        {
-            if(typeid(*(colliding_items[x])) == typeid(Enemy))
-            {
-                //remove & delete bullet
-                scene() -> removeItem(this);
-                delete this;
+    QList<QGraphicsItem *> colliding_items3 = this->collidingItems();
+    QList<QGraphicsItem *>::Iterator k = colliding_items3.begin();
 
-                return; //so compiler doesn't try to run rest of move()
-            }
+    //traverse collidingItems() to see if it colliding with enemy2
+    while(k != colliding_items3.end())
+    {
+        if ( typeid(**k) == typeid(Enemy2))
+        {
+            //remove enemy & bullet
+            //scene() -> removeItem(this);
+            scene() -> removeItem(*k);
+
+            //delete the enemy bullet
+            delete this;
+            delete *k;
+            return; //so compiler doesn't try to run rest of move()
         }
-        */
+        k++;
+    }
+
 
     //move bullet up
     setPos(x(),y()-15);
