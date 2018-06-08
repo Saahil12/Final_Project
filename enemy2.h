@@ -9,11 +9,8 @@ class Enemy2: public QObject, public QGraphicsPixmapItem {
 public:
     Enemy2(QGraphicsItem * parent = 0);
 
-    int get_enemy_health();
-    void decrease_enemy_health();
 
 private:
-    int enemy_health;
 
 public slots:
     void move();

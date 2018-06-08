@@ -42,7 +42,7 @@ void Bullet_Enemy2::move()
     }
 
     //move bullet down
-    setPos(x(),y()+10);
+    setPos(x(),y()+20);
 
     //remove from the scene and then delete it to save memory
     if (pos().y() > 600) //want to delete if bottom of bullet goes out of scene

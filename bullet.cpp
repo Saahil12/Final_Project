@@ -4,6 +4,7 @@
 #include <QList> //using for colliding_items
 #include "game.h"
 #include "enemy2.h"
+#include <QMediaPlayer>
 
 extern Game * game; // there is an external global object called game
 
@@ -32,6 +33,11 @@ void Bullet::move()
     {
         if ( typeid(**k) == typeid(Enemy2))
         {
+            //play explosion sound
+            QMediaPlayer * explosion_sound = new QMediaPlayer();
+            explosion_sound -> setMedia(QUrl("qrc:/sounds/explosion.wav"));
+            explosion_sound -> play();
+
             //remove enemy & bullet
             //scene() -> removeItem(this);
             scene() -> removeItem(*k);
@@ -46,7 +52,7 @@ void Bullet::move()
 
 
     //move bullet up
-    setPos(x(),y()-15);
+    setPos(x(),y()-20);
 
     //remove from the scene and then delete it to save memory
     if (pos().y() < 0 ) //want to delete if bottom of bullet goes out of scene

@@ -25,7 +25,7 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer -> start(50);
 
-    //random fire rate 500ms to 2000ms
+    //random fire rate 250ms to 2000ms
     int random_rate = rand()%1500 + 250;
 
     //connect timer to enemy bullet

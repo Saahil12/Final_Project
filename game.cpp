@@ -27,12 +27,20 @@ Game::Game(QWidget *parent){
     scene -> setBackgroundBrush(QBrush(QImage(":/images/spacebg.jpeg")));
 
     //add a view and show it
+    /*
     QGraphicsView * view = new QGraphicsView();
     view -> setScene(scene);
     view -> setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view -> setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view -> show();
     view -> setFixedSize(800,600);
+    */
+
+    setScene(scene);
+        setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        setFixedSize(800,600);
+
 
     //create an item to put into the scene
     player = new Player();
