@@ -39,3 +39,8 @@ try to recreate a version of Space Invaders using Qtcreator and C++
   Commit: Added Enemy2 <br />  
 <img width="504" alt="screen shot 2018-06-04 at 1 01 58 pm" src="https://user-images.githubusercontent.com/38049808/40938788-a4b0ddba-67f7-11e8-83c6-97486d42758b.png"> <br />
 <br />
+
+  Commit: Added defense wall <br />
+<img width="504" alt="screen shot 2018-06-11 at 6 19 45 pm" src="https://user-images.githubusercontent.com/38049808/41264929-5600f9d6-6da4-11e8-99e4-05189a2dfa4b.png"> <br />
+<br />
+  
