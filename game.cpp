@@ -3,6 +3,8 @@
 #include <QGraphicsTextItem>
 #include <QFont>
 #include "enemy.h"
+#include "wall.h"
+
 /*
  QGraphicsScene : a container for all your objects in the game (players and stuff)
  QGraphicsItem is where objects are derived before going into the scene above
@@ -44,7 +46,7 @@ Game::Game(QWidget *parent){
 
     //create an item to put into the scene
     player = new Player();
-    player -> setPos(400, 500);
+    player -> setPos(340, 500);
 
     //only one item can respond to events at a time and that is the focus item
     player ->setFlag(QGraphicsItem::ItemIsFocusable); //makes rect focusable
@@ -71,5 +73,30 @@ Game::Game(QWidget *parent){
     QTimer * timer2 = new QTimer();
     QObject::connect(timer2,SIGNAL(timeout()),player,SLOT(spawn2()));
     timer2 -> start(7000); //7000ms so every 7 sec
+
+    //create defense walls;
+    Wall * wall1 = new Wall(10);
+    scene -> addItem(wall1);
+
+    Wall * wall2 = new Wall(110);
+    scene -> addItem(wall2);
+
+    Wall * wall3 = new Wall(220);
+    scene -> addItem(wall3);
+
+    Wall * wall4 = new Wall(320);
+    scene -> addItem(wall4);
+
+    Wall * wall5 = new Wall(410);
+    scene -> addItem(wall5);
+
+    Wall * wall6 = new Wall(510);
+    scene -> addItem(wall6);
+
+    Wall * wall7 = new Wall(610);
+    scene -> addItem(wall7);
+
+    Wall * wall8 = new Wall(710);
+    scene -> addItem(wall8);
 }
 

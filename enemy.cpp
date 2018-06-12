@@ -14,7 +14,7 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     //set random position
     int random_number = rand() % 720;
-    setPos(random_number,0);
+    setPos(random_number,-45);
 
     //drew the enemy
     setPixmap(QPixmap(":/images/enemy.png"));
