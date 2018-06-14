@@ -8,11 +8,15 @@ class Wall: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
     Wall(int x);
+    void decrease_stability();
+    int get_stability();
 
 private:
+    int stability;
 
 public slots:
-    void remove();
+    void defend();
+
 
 };
 #endif // WALL_H

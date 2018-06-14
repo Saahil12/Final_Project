@@ -4,6 +4,7 @@
 #include <QList> //using for colliding_items
 #include "game.h"
 #include "enemy2.h"
+#include "wall.h"
 
 extern Game * game; // there is an external global object called game
 
@@ -39,6 +40,7 @@ void Bullet_Enemy2::move()
             return; //so compiler doesn't try to run rest of move()
         }
         j++;
+
     }
 
     //move bullet down

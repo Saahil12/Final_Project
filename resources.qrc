@@ -13,5 +13,6 @@
         <file>enemy2.png</file>
         <file>enemy2_bullet.png</file>
         <file>wall1.png</file>
+        <file>wall1_shattering.png</file>
     </qresource>
 </RCC>

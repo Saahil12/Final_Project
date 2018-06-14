@@ -18,12 +18,12 @@ void Player::keyPressEvent(QKeyEvent *event)
     if (event -> key() == Qt::Key_Left)
     {
         if (pos().x() >0)  //to stay on view
-        { setPos(x()-53,y()); }
+        { setPos(x()-52,y()); }
     }
     else if (event -> key() == Qt::Key_Right)
     {
         if (pos().x()+ 150 < 800) //to stay on view
-        { setPos(x()+53,y()); }
+        { setPos(x()+54,y()); }
     }
     /*
     else if (event -> key() == Qt::Key_Up)

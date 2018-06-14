@@ -7,7 +7,7 @@ Health::Health(QGraphicsItem *parent) :QGraphicsTextItem(parent){
     health = 3;
 
     //draw the text box
-    setPlainText("HEALTH: " + QString::number(health));
+    setPlainText("Health: " + QString::number(health));
     setDefaultTextColor(Qt::red);
     setFont(QFont("times",25)); //change this later
 }
@@ -21,7 +21,7 @@ void Health::decrease_health()
         health_loss -> play();
 
         health--;
-        setPlainText("HEALTH: " + QString::number(health));
+        setPlainText("Health: " + QString::number(health));
     }
 
     else
