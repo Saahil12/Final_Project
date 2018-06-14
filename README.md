@@ -5,9 +5,10 @@ try to recreate a version of Space Invaders using Qtcreator and C++
 
 ## 10C implementations  
   * #### Iterators:
-    used in move() function in enemy.cpp to traverse through a List  
-    used in move() function in bullet.cpp to traverse through a List  
-    used in move() function in bullet_enemy2.cpp to traverse through a List  
+    used in move() slot in enemy.cpp to traverse through a List  
+    used in move() slot in bullet.cpp to traverse through a List  
+    used in move() slot in bullet_enemy2.cpp to traverse through a List  
+    used in defend() slot in wall.cpp to traverse through a List  
   
 ## Journal 
   Commit: Added a rect object to scene  
