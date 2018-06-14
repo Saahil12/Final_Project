@@ -1,7 +1,11 @@
 # Final_Project
 
 ## Goal  
-try to recreate a version of Space Invaders using Qtcreator and C++
+try to recreate a version of Space Invaders using Qtcreator and C++  
+
+##  References
+  * http://doc.qt.io/archives/qt-4.8/index.html 
+  * https://www.youtube.com/watch?v=8ntEQpg7gck&list=PLMgDVIa0Pg8WrI9WmZR09xAbfXyfkqKWy&index=2
 
 ## 10C implementations  
   * #### Iterators:
