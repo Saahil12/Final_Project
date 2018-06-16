@@ -46,7 +46,7 @@ Game::Game(QWidget *parent){
 
     //create an item to put into the scene
     player = new Player();
-    player -> setPos(340, 500);
+    player -> setPos(330, 500);
 
     //only one item can respond to events at a time and that is the focus item
     player ->setFlag(QGraphicsItem::ItemIsFocusable); //makes rect focusable

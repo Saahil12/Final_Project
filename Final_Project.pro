@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     health.cpp \
     enemy2.cpp \
     bullet_enemy2.cpp \
-    wall.cpp
+    wall.cpp \
+    wall2.cpp
 
 HEADERS  += \
     bullet.h \
@@ -44,7 +45,8 @@ HEADERS  += \
     health.h \
     enemy2.h \
     bullet_enemy2.h \
-    wall.h
+    wall.h \
+    wall2.h
 
 FORMS    += final_project.ui
 

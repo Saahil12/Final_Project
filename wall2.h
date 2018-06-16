@@ -1,20 +1,17 @@
-#ifndef WALL_H
-#define WALL_H
+#ifndef WALL2_H
+#define WALL2_H
 
 #include <QGraphicsPixmapItem>
 #include <QObject> // needed for anything using signal and slots
 
-class Wall: public QObject, public QGraphicsPixmapItem {
+class Wall2: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
-    Wall(int x);
-    int distance;
+    Wall2(int x);
 
 private:
 
 public slots:
     void defend();
-
-
 };
-#endif // WALL_H
+#endif // WALL2_H

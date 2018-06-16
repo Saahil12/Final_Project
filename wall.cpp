@@ -4,6 +4,7 @@
 #include <QTimer>
 #include "enemy.h"
 #include "bullet_enemy2.h"
+#include "wall2.h"
 
 extern Game * game;
 
@@ -15,23 +16,11 @@ Wall::Wall(int x): QObject(), QGraphicsPixmapItem()
     //drew the enemy
     setPixmap(QPixmap(":/images/wall1.png"));
 
-    //initialize stability
-    stability = 2;
+    distance = x;
 
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(defend()));
     timer -> start(50); //sets the timers time to every 50ms, thus when it's timeout signal will be emmited
-}
-
-void Wall::decrease_stability()
-{
-    --stability;
-    //setPixmap(QPixmap(":/images/wall1_shattered.png"));
-}
-
-int Wall::get_stability()
-{
-    return stability;
 }
 
 void Wall::defend()
@@ -40,45 +29,28 @@ void Wall::defend()
     QList<QGraphicsItem *>::Iterator l = colliding_items2.begin();
 
     //traverse collidingItems() to see if it is enemy or enemy_bullet
+
     while(l != colliding_items2.end())
     {
         if ( typeid(**l) == typeid(Enemy))
         {
-            if (this -> get_stability() == 1)
-            {
-                scene() -> removeItem(*l);
-                scene() -> removeItem(this);
+               Wall2* wall2 = new Wall2(distance);
+               scene() -> addItem(wall2);
+               scene() -> removeItem(*l);
+               scene() -> removeItem(this);
 
-                delete *l;
-                delete this;
-            }
-
-            else
-            {
-                this -> decrease_stability();
-                scene() -> removeItem(*l);
-                delete *l;
-            }
+               delete *l;
+               delete this;
         }
-
         else if (typeid(**l) == typeid(Bullet_Enemy2))
         {
-            if (this -> get_stability() == 1)
-            {
-                scene() -> removeItem(*l);
-                scene() -> removeItem(this);
+               Wall2*  wall2 = new Wall2(distance);
+               scene() -> addItem(wall2);
+               scene() -> removeItem(*l);
+               scene() -> removeItem(this);
 
-                delete *l;
-                delete this;
-            }
-
-            else
-            {
-                this -> decrease_stability();
-                scene() -> removeItem(*l);
-                delete *l;
-            }
-
+               delete *l;
+               delete this;
         }
 
         l++;
