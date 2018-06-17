@@ -1,5 +1,6 @@
 #include <QApplication>
 #include "game.h"
+#include "health.h"
 
 Game *game; //global b/c other objects need to access it
 

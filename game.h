@@ -9,6 +9,7 @@
 #include "health.h"
 
 class Game: public QGraphicsView{
+    Q_OBJECT
 public:
     Game(QWidget * parent=0);
 
@@ -16,5 +17,12 @@ public:
     Player * player;
     Score * score;
     Health * health;
+
+    void gameOver();
+    void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
+
+public slots:
+    void start();
+    void restart();
 };
 #endif // GAME_H

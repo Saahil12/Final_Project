@@ -1,6 +1,9 @@
 #include "health.h"
 #include <QFont>
 #include <QMediaPlayer>
+#include "game.h"
+
+extern Game * game;
 
 Health::Health(QGraphicsItem *parent) :QGraphicsTextItem(parent){
     //inititalize score
@@ -32,6 +35,8 @@ void Health::decrease_health()
 
         health--;
         setPlainText("Health: " + QString::number(health));
+
+        game -> gameOver();
     }
 }
 

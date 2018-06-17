@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     enemy2.cpp \
     bullet_enemy2.cpp \
     wall.cpp \
-    wall2.cpp
+    wall2.cpp \
+    button.cpp
 
 HEADERS  += \
     bullet.h \
@@ -46,7 +47,8 @@ HEADERS  += \
     enemy2.h \
     bullet_enemy2.h \
     wall.h \
-    wall2.h
+    wall2.h \
+    button.h
 
 FORMS    += final_project.ui
 

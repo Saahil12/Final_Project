@@ -4,6 +4,8 @@
 #include <QFont>
 #include "enemy.h"
 #include "wall.h"
+#include <QDebug>
+#include "button.h"
 
 /*
  QGraphicsScene : a container for all your objects in the game (players and stuff)
@@ -28,22 +30,16 @@ Game::Game(QWidget *parent){
     scene -> setSceneRect(0,0,800,600);
     scene -> setBackgroundBrush(QBrush(QImage(":/images/spacebg.jpeg")));
 
-    //add a view and show it
-    /*
-    QGraphicsView * view = new QGraphicsView();
-    view -> setScene(scene);
-    view -> setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view -> setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view -> show();
-    view -> setFixedSize(800,600);
-    */
-
     setScene(scene);
-        setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        setFixedSize(800,600);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setFixedSize(800,600);
 
+    start();
+}
 
+void Game::start()
+{
     //create an item to put into the scene
     player = new Player();
     player -> setPos(330, 500);
@@ -99,4 +95,56 @@ Game::Game(QWidget *parent){
     Wall * wall8 = new Wall(710);
     scene -> addItem(wall8);
 }
+
+
+void Game::drawPanel(int x, int y, int width, int height, QColor color, double opacity)
+{
+        QGraphicsRectItem* panel = new QGraphicsRectItem(x,y,width,height);
+        QBrush brush;
+        brush.setStyle(Qt::SolidPattern);
+        brush.setColor(color);
+        panel->setBrush(brush);
+        panel->setOpacity(opacity);
+        scene->addItem(panel);
+}
+
+void Game::restart()
+{
+    scene->clear();
+    start();
+}
+
+void Game::gameOver()
+{
+    //disable scene items
+    int n = scene->items().size();
+
+    for (int i=0; i<n; i++)
+    {
+        scene->items()[i] -> setEnabled(false);
+    }
+
+    //pop up game over screen
+    drawPanel(0,0,scene->width(),scene->height(),Qt::black,0.65);
+    drawPanel(250,100,300,300,Qt::lightGray,0.75);
+
+    //create "Game Over" text
+    QString end = "Game Over";
+    QGraphicsTextItem* gameover = new QGraphicsTextItem(QString(end));
+    gameover -> setPos(400,150);
+    scene -> addItem(gameover);
+
+    //create playagain button
+    Button* playAgain = new Button(QString("Play Again"));
+    playAgain -> setPos(300,225);
+    scene -> addItem(playAgain);
+    connect(playAgain,SIGNAL(clicked()),this,SLOT(restart()));
+
+    //create quit button
+    Button* quit = new Button(QString("Quit"));
+    quit -> setPos(300,300);
+    scene -> addItem(quit);
+    connect(quit,SIGNAL(clicked()),this,SLOT(close()));
+}
+
 
