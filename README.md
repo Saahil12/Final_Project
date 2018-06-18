@@ -31,6 +31,9 @@ try to recreate a version of Space Invaders using Qtcreator and C++
      * used in move() slot in enemy.cpp to traverse through a List  
      * used in move() slot in bullet.cpp to traverse through a List  
      * used in move() slot in bullet_enemy2.cpp to traverse through a List  
+ 
+ * #### RAII  
+   Not all objects have been deleted or need to be deleted because Qt objects are RAII ready. They "clean up after themselves" when they go out of scpe.
   
 ## Journal 
   Commit: Added a rect object to scene  
