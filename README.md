@@ -27,6 +27,7 @@ try to recreate a version of Space Invaders using Qtcreator and C++
     used in move() slot in bullet.cpp to traverse through a List  
     used in move() slot in bullet_enemy2.cpp to traverse through a List  
     used in defend() slot in wall.cpp to traverse through a List  
+    used in defend() slot in wall2.cpp to traverse through a List 
   
 ## Journal 
   Commit: Added a rect object to scene  
