@@ -25,34 +25,35 @@ Wall::Wall(int x): QObject(), QGraphicsPixmapItem()
 
 void Wall::defend()
 {
-    QList<QGraphicsItem *> colliding_items2 = this->collidingItems();
-    QList<QGraphicsItem *>::Iterator l = colliding_items2.begin();
+    //**************************************************************************
+    //10C Implementations : Iterators, Generic Algorithms, and Lambda Functions
+    //**************************************************************************
 
-    //traverse collidingItems() to see if it is enemy or enemy_bullet
+    QList<QGraphicsItem *> colliding_items4 = this->collidingItems();
+    QList<QGraphicsItem *>::Iterator l1 = colliding_items4.begin();
+    QList<QGraphicsItem *>::Iterator l2 = colliding_items4.end();
 
-    while(l != colliding_items2.end())
-    {
-        if ( typeid(**l) == typeid(Enemy))
-        {
-               Wall2* wall2 = new Wall2(distance);
-               scene() -> addItem(wall2);
-               scene() -> removeItem(*l);
-               scene() -> removeItem(this);
+    std::for_each(l1, l2, [this](QGraphicsItem* x){
 
-               delete *l;
-               delete this;
-        }
-        else if (typeid(**l) == typeid(Bullet_Enemy2))
-        {
-               Wall2*  wall2 = new Wall2(distance);
-               scene() -> addItem(wall2);
-               scene() -> removeItem(*l);
-               scene() -> removeItem(this);
+            if ( typeid(*x) == typeid(Enemy))
+            {
+                   Wall2* wall2 = new Wall2(distance);
+                   scene() -> addItem(wall2);
+                   scene() -> removeItem(x);
+                   scene() -> removeItem(this);
 
-               delete *l;
-               delete this;
-        }
+                   delete x;
+                   delete this;
+            }
+            else if (typeid(*x) == typeid(Bullet_Enemy2))
+            {
+                   Wall2*  wall2 = new Wall2(distance);
+                   scene() -> addItem(wall2);
+                   scene() -> removeItem(x);
+                   scene() -> removeItem(this);
 
-        l++;
-    }
+                   delete x;
+                   delete this;
+            }
+    });
 }

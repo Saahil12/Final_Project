@@ -25,13 +25,42 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 
 void Bullet::move()
 {
-    QList<QGraphicsItem *> colliding_items3 = this->collidingItems();
-    QList<QGraphicsItem *>::Iterator k = colliding_items3.begin();
+    //**************************************************************************
+    //10C Implementations : Iterators, Generic Algorithms, and Lambda Functions
+    //**************************************************************************
+
+    QList<QGraphicsItem *> colliding_items2 = this->collidingItems();
+    QList<QGraphicsItem *>::Iterator k1 = colliding_items2.begin();
+    QList<QGraphicsItem *>::Iterator k2 = colliding_items2.end();
+
+/*
+    //Generic Algorithm and Lambda Function causes program to crash unpredictably here
+
+    std::for_each(k1, k2, [this](QGraphicsItem* k){
+
+    if ( typeid(**k) == typeid(Enemy2))
+    {
+        //play explosion sound
+        QMediaPlayer * explosion_sound = new QMediaPlayer();
+        explosion_sound -> setMedia(QUrl("qrc:/sounds/explosion.wav"));
+        explosion_sound -> play();
+
+        //remove enemy & bullet
+        //scene() -> removeItem(this);
+        scene() -> removeItem(*k);
+
+        //delete the enemy bullet
+        delete this;
+        delete *k;
+        return; //so compiler doesn't try to run rest of move()
+    }
+    });
+*/
 
     //traverse collidingItems() to see if it colliding with enemy2
-    while(k != colliding_items3.end())
+    while(k1 != k2)
     {
-        if ( typeid(**k) == typeid(Enemy2))
+        if ( typeid(**k1) == typeid(Enemy2))
         {
             //play explosion sound
             QMediaPlayer * explosion_sound = new QMediaPlayer();
@@ -40,16 +69,15 @@ void Bullet::move()
 
             //remove enemy & bullet
             //scene() -> removeItem(this);
-            scene() -> removeItem(*k);
+            scene() -> removeItem(*k1);
 
             //delete the enemy bullet
             delete this;
-            delete *k;
+            delete *k1;
             return; //so compiler doesn't try to run rest of move()
         }
-        k++;
+        ++k1;
     }
-
 
     //move bullet up
     setPos(x(),y()-20);

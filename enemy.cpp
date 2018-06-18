@@ -44,16 +44,23 @@ void Enemy::decrease_enemy_health()
 
 void Enemy::move()
 {
+    //**************************************************************************
+    //10C Implementations : Iterators, Generic Algorithms, and Lambda Functions
+    //**************************************************************************
+
     //check if it is colliding with player....if so, destroy enemy & decrease health of player
-    //use collidingItem
     QList<QGraphicsItem *> colliding_items = this->collidingItems(); //will return a list
                                                                      //of pointers to all the QgraphicItems that
                                                                      //the enemy is colliding with
-    QList<QGraphicsItem *>::Iterator i = colliding_items.begin();
-    //traverse collidingItems() to see if it is a player or bullet
-    while(i != colliding_items.end())
-    {
-        if ( typeid(**i) == typeid(Player))
+    QList<QGraphicsItem *>::Iterator i1 = colliding_items.begin();
+    QList<QGraphicsItem *>::Iterator i2 = colliding_items.end();
+
+/*
+    //Generic Algorithm and Lambda Function causes program to crash unpredictably here
+
+    std::for_each(colliding_items.begin(), colliding_items.end(), [this](QGraphicsItem* i){
+
+        if ( typeid(*i) == typeid(Player))
         {
             //decrease the health
             game->health->decrease_health();
@@ -66,7 +73,7 @@ void Enemy::move()
             return; //so compiler doesn't try to run rest of move()
         }
 
-        else if (typeid(**i) == typeid(Bullet))
+        else if (typeid(*i) == typeid(Bullet))
         {
             if (this -> get_enemy_health() >= 1)
             {
@@ -74,8 +81,8 @@ void Enemy::move()
                 this->decrease_enemy_health();
 
                 //remove & delete bullet
-                scene() -> removeItem(*i);
-                delete *i;
+                scene() -> removeItem(i);
+                delete i;
             }
 
             else if (this -> get_enemy_health() == 0)
@@ -89,8 +96,8 @@ void Enemy::move()
                 explosion_sound -> play();
 
                 //remove & delete enemy and bullet
-                scene() -> removeItem(*i);
-                delete *i;
+                scene() -> removeItem(i);
+                delete i;
 
                 //scene() -> removeItem(this);
                 delete this;
@@ -98,7 +105,58 @@ void Enemy::move()
                 return; //so compiler doesn't try to run rest of move()
             }
         }
-        ++i;
+    });
+*/
+
+    //traverse collidingItems() to see if it is a player or bullet
+    while(i1 != i2)
+    {
+        if ( typeid(**i1) == typeid(Player))
+        {
+            //decrease the health
+            game->health->decrease_health();
+
+            //remove enemy & play explosion sound
+            scene() -> removeItem(this);
+
+            //delete enemy
+            delete this;
+            return; //so compiler doesn't try to run rest of move()
+        }
+
+        else if (typeid(**i1) == typeid(Bullet))
+        {
+            if (this -> get_enemy_health() >= 1)
+            {
+                //decrease enemy health
+                this->decrease_enemy_health();
+
+                //remove & delete bullet
+                scene() -> removeItem(*i1);
+                delete *i1;
+            }
+
+            else if (this -> get_enemy_health() == 0)
+            {
+                //increase the players score
+                game->score->increase_score();
+
+                //play explosion sound
+                QMediaPlayer * explosion_sound = new QMediaPlayer();
+                explosion_sound -> setMedia(QUrl("qrc:/sounds/explosion.wav"));
+                explosion_sound -> play();
+
+                //remove & delete enemy and bullet
+                scene() -> removeItem(*i1);
+                delete *i1;
+
+                //scene() -> removeItem(this);
+                delete this;
+
+                return; //so compiler doesn't try to run rest of move()
+            }
+        }
+        ++i1;
     }
 
     //move enemy down

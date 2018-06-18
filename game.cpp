@@ -90,7 +90,7 @@ void Game::start()
     QTimer * timer2 = new QTimer();
     QObject::connect(timer2,SIGNAL(timeout()),player,SLOT(spawn2()));
     timer2 -> start(7000); //7000ms so every 7 sec
-/*
+
     //create defense walls;
     Wall * wall1 = new Wall(10);
     scene -> addItem(wall1);
@@ -115,7 +115,7 @@ void Game::start()
 
     Wall * wall8 = new Wall(710);
     scene -> addItem(wall8);
-    */
+
 }
 
 
@@ -160,7 +160,7 @@ void Game::gameOver()
     QFont scoreFont("Helvetica [Cronyx]",35,QFont::Bold);
     score->setFont(scoreFont);
     score ->setDefaultTextColor(Qt::blue);
-    score->setPos(322,205);
+    score->setPos(318,205);
     scene->addItem(score);
 
     //create playagain button

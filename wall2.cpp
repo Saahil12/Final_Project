@@ -22,30 +22,33 @@ Wall2::Wall2(int x): QObject(), QGraphicsPixmapItem()
 
 void Wall2::defend()
 {
-    QList<QGraphicsItem *> colliding_items3 = this->collidingItems();
-    QList<QGraphicsItem *>::Iterator s = colliding_items3.begin();
+    //**************************************************************************
+    //10C Implementations : Iterators, Generic Algorithms, and Lambda Functions
+    //**************************************************************************
+
+    QList<QGraphicsItem *> colliding_items5 = this->collidingItems();
+    QList<QGraphicsItem *>::Iterator s1 = colliding_items5.begin();
+    QList<QGraphicsItem *>::Iterator s2 = colliding_items5.end();
 
     //traverse collidingItems() to see if it is enemy or enemy_bullet
-    while(s != colliding_items3.end())
-    {
-        if ( typeid(**s) == typeid(Enemy))
+    std::for_each(s1, s2, [this](QGraphicsItem* x){
+
+        if ( typeid(*x) == typeid(Enemy))
         {
-                scene() -> removeItem(*s);
+                scene() -> removeItem(x);
                 scene() -> removeItem(this);
 
-                delete *s;
+                delete x;
                 delete this;
         }
 
-        else if (typeid(**s) == typeid(Bullet_Enemy2))
+        else if (typeid(*x) == typeid(Bullet_Enemy2))
         {
-                scene() -> removeItem(*s);
+                scene() -> removeItem(x);
                 scene() -> removeItem(this);
 
-                delete *s;
+                delete x;
                 delete this;
         }
-
-        s++;
-    }
+    });
 }
