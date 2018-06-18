@@ -22,7 +22,7 @@ try to recreate a version of Space Invaders using Qtcreator and C++
   
 
 ## 10C implementations  
-  * #### Iterators:
+  * #### Iterators, Generic Algorithms, and Lambda Functions:  
     used in move() slot in enemy.cpp to traverse through a List  
     used in move() slot in bullet.cpp to traverse through a List  
     used in move() slot in bullet_enemy2.cpp to traverse through a List  
