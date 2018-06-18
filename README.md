@@ -22,12 +22,15 @@ try to recreate a version of Space Invaders using Qtcreator and C++
   
 
 ## 10C implementations  
-  * #### Iterators, Generic Algorithms, and Lambda Functions:  
-    used in move() slot in enemy.cpp to traverse through a List  
-    used in move() slot in bullet.cpp to traverse through a List  
-    used in move() slot in bullet_enemy2.cpp to traverse through a List  
-    used in defend() slot in wall.cpp to traverse through a List  
-    used in defend() slot in wall2.cpp to traverse through a List 
+  * #### Iterators, Generic Algorithms, and Lambda Functions: 
+    I used the **std::for_each** algorithm to traverse a list with iterators and applied a lambda function to each element in the slots below:    
+     * used in defend() slot in wall.cpp     
+     * used in defend() slot in wall2.cpp     
+    
+    Unfortunately, the combination of Iterators, Generic Algorithms, and Lambda functions in the slots below caused the program to crash unexpectedly and unpredictably. Thus, I have commented that code out and used just **iterators** below:  
+     * used in move() slot in enemy.cpp to traverse through a List  
+     * used in move() slot in bullet.cpp to traverse through a List  
+     * used in move() slot in bullet_enemy2.cpp to traverse through a List  
   
 ## Journal 
   Commit: Added a rect object to scene  
