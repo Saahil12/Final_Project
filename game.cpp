@@ -35,7 +35,28 @@ Game::Game(QWidget *parent){
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
 
-    start();
+    //pop up menu panels
+    drawPanel(0,0,scene->width(),scene->height(),Qt::black,0.65);
+
+    //create title
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Space Attack"));
+    QFont titleFont("Helvetica [Cronyx]",50,QFont::Bold);
+    title->setFont(titleFont);
+    title ->setDefaultTextColor(Qt::green);
+    title->setPos(235,125);
+    scene->addItem(title);
+
+    //create play button
+    Button* play = new Button(QString("Play"));
+    play -> setPos(300,225);
+    scene -> addItem(play);
+    connect(play,SIGNAL(clicked()),this,SLOT(restart()));
+
+    //create quit button
+    Button* quit = new Button(QString("Quit"));
+    quit -> setPos(300,300);
+    scene -> addItem(quit);
+    connect(quit,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 void Game::start()
@@ -69,7 +90,7 @@ void Game::start()
     QTimer * timer2 = new QTimer();
     QObject::connect(timer2,SIGNAL(timeout()),player,SLOT(spawn2()));
     timer2 -> start(7000); //7000ms so every 7 sec
-
+/*
     //create defense walls;
     Wall * wall1 = new Wall(10);
     scene -> addItem(wall1);
@@ -94,6 +115,7 @@ void Game::start()
 
     Wall * wall8 = new Wall(710);
     scene -> addItem(wall8);
+    */
 }
 
 
@@ -117,34 +139,41 @@ void Game::restart()
 void Game::gameOver()
 {
     //disable scene items
-    int n = scene->items().size();
-
-    for (int i=0; i<n; i++)
-    {
-        scene->items()[i] -> setEnabled(false);
-    }
 
     //pop up game over screen
     drawPanel(0,0,scene->width(),scene->height(),Qt::black,0.65);
-    drawPanel(250,100,300,300,Qt::lightGray,0.75);
+    //drawPanel(250,100,300,300,Qt::lightGray,0.75);
 
-    //create "Game Over" text
-    QString end = "Game Over";
-    QGraphicsTextItem* gameover = new QGraphicsTextItem(QString(end));
-    gameover -> setPos(400,150);
-    scene -> addItem(gameover);
+    //create game over title
+    QGraphicsTextItem* title = new QGraphicsTextItem(QString("Game Over"));
+    QFont titleFont("Helvetica [Cronyx]",50,QFont::Bold);
+    title->setFont(titleFont);
+    title ->setDefaultTextColor(Qt::red);
+    title->setPos(258,150);
+    scene->addItem(title);
+
+    //create score title
+    int x = score->get_score();
+    QString s = QString::number(x);
+    QString output_score = "Score : " + s;
+    QGraphicsTextItem* score = new QGraphicsTextItem(QString(output_score));
+    QFont scoreFont("Helvetica [Cronyx]",35,QFont::Bold);
+    score->setFont(scoreFont);
+    score ->setDefaultTextColor(Qt::blue);
+    score->setPos(322,205);
+    scene->addItem(score);
 
     //create playagain button
     Button* playAgain = new Button(QString("Play Again"));
-    playAgain -> setPos(300,225);
+    playAgain -> setPos(300,275);
     scene -> addItem(playAgain);
     connect(playAgain,SIGNAL(clicked()),this,SLOT(restart()));
 
     //create quit button
-    Button* quit = new Button(QString("Quit"));
-    quit -> setPos(300,300);
-    scene -> addItem(quit);
-    connect(quit,SIGNAL(clicked()),this,SLOT(close()));
+    Button* quit1 = new Button(QString("Quit"));
+    quit1 -> setPos(300,350);
+    scene -> addItem(quit1);
+    connect(quit1,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 

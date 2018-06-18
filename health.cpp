@@ -27,7 +27,7 @@ void Health::decrease_health()
         setPlainText("Health: " + QString::number(health));
     }
 
-    else
+    else if (health == 1)
     {
         QMediaPlayer * game_over = new QMediaPlayer();
         game_over -> setMedia(QUrl("qrc:/sounds/game_over.mp3"));
