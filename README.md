@@ -1,10 +1,13 @@
 # Space Attack
+<br />
 
 ## Summary  
-This project uses Qtcreator and C++ to create a video game as a final project for Professor Salazar's Pic 10C class at UCLA  
+This project uses Qtcreator and C++ to create a video game as a final project for Professor Salazar's Pic 10C class at UCLA
+<br />
 
 ## Instructions
 Protect yourself and don't let any invaders by you! Use spacebar to shoot and left/right arrow keys to move. The viscous green invaders take 3 shots to kill while the soarin red invaders only take 1! However, be careful because the red invaders will fire back! Each segment of your defensive wall can take 2 hits before being completely destroyed. Your health starts off at 3 and decreases every time a green invader gets past you, a green invader hits you, or a red invaders bullet hits you. See how long you can protect your galaxy!!
+<br />
 
 ##  References
   * http://doc.qt.io/archives/qt-4.8/index.html  
@@ -24,7 +27,7 @@ Protect yourself and don't let any invaders by you! Use spacebar to shoot and le
     Site I used to get spacebg.jpeg, the background image  
   * http://www.classicgaming.cc/classics/space-invaders/sounds  
     Site I used for all audio files   
-  
+<br />  
 
 ## 10C implementations  
   * #### Iterators, Generic Algorithms, and Lambda Functions: 
@@ -39,7 +42,8 @@ Protect yourself and don't let any invaders by you! Use spacebar to shoot and le
  
  * #### RAII  
    Not all objects have been deleted or need to be deleted because Qt objects are RAII ready. They "clean up after themselves" when they go out of scpe.
-  
+ <br />
+ 
 ## Journal 
   Commit: Added a rect object to scene  
   
