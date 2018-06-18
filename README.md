@@ -1,7 +1,10 @@
-# Final_Project
+# Space Attack
 
-## Goal  
-try to recreate a version of Space Invaders using Qtcreator and C++  
+## Summary  
+This project uses Qtcreator and C++ to create a video game as a final project for Professor Salazar's Pic 10C class at UCLA  
+
+## Instructions
+Protect yourself and don't let any invaders by you! Use spacebar to shoot and left/right arrow keys to move. The viscous green invaders take 3 shots to kill while the soarin red invaders only take 1! However, be careful because the red invaders will fire back! Each segment of your defensive wall can take 2 hits before being completely destroyed. Your health starts off at 3 and decreases every time a green invader gets past you, a green invader hits you, or a red invaders bullet hits you. See how long you can protect your galaxy!!
 
 ##  References
   * http://doc.qt.io/archives/qt-4.8/index.html  
@@ -18,7 +21,9 @@ try to recreate a version of Space Invaders using Qtcreator and C++
     bullet.png and enemy2_bullet.png were simply created from PowerPoint shapes  
     <br />
   * https://www.pond5.com/stock-footage/23768280/simple-star-space-background-effect.html  
-    Site I used to get spacebg.jpeg
+    Site I used to get spacebg.jpeg, the background image  
+  * http://www.classicgaming.cc/classics/space-invaders/sounds  
+    Site I used for all audio files   
   
 
 ## 10C implementations  
