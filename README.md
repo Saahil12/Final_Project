@@ -4,10 +4,22 @@
 try to recreate a version of Space Invaders using Qtcreator and C++  
 
 ##  References
-  * http://doc.qt.io/archives/qt-4.8/index.html   
-      ......description........
+  * http://doc.qt.io/archives/qt-4.8/index.html  
+    Used this Qt site to learn and understand member functions of certain standard classes and objects
   * https://www.youtube.com/watch?v=8ntEQpg7gck&list=PLMgDVIa0Pg8WrI9WmZR09xAbfXyfkqKWy&index=2  
-    ....... description........
+    Used this Qt game tutorial to get familiar with Qt and its classes, more specifically, QPixMapItem, QGraphicsRectItem, QKeyEvent, QMediaPlayer, and QGraphicsTextItem. 
+  * http://moreinfo.thebigboss.org/moreinfo/spaceinvadersbootlogo.php  
+    Site I got enemy.png & enemy2.png. I used remove backround in PowerPoint and adjusted the size before adding as an image resource to Qt  
+  * https://commons.wikimedia.org/wiki/File:Space_invaders.character.jpeg  
+    Site I used to get player.png picture. I used remove backround in PowerPoint and adjusted the size before adding as an image resource to Qt
+  * http://www.clker.com/cliparts/H/Z/0/r/m/o/tall-blue-rectangle-md.png  
+    Site I used to get wall1.png. I used PowerPoint to change the color and adjusted the size before adding as an image resource to Qt. Also used PowerPoint to change features of this image for wall2.png.  
+    <br />
+    bullet.png and enemy2_bullet.png were simply created from PowerPoint shapes  
+    <br />
+  * https://www.pond5.com/stock-footage/23768280/simple-star-space-background-effect.html  
+    Site I used to get spacebg.jpeg
+  
 
 ## 10C implementations  
   * #### Iterators:
