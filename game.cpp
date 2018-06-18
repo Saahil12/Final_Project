@@ -78,7 +78,7 @@ void Game::start()
 
     //create the health
     health = new Health();
-    health -> setPos(health->x(), health->y()+25);
+    health -> setPos(health->x(), health->y()+30);
     scene -> addItem(health);
 
     //spawn enemy

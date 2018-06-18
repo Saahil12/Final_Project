@@ -18,7 +18,7 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 
     //connect function allows you to connect certain signal with certain slot
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-        //this connects timeout signal from timer to move slot of the bullet
+    //this connects timeout signal from timer to move slot of the bullet
 
     timer -> start(50); //sets the timers time to every 50ms, thus when it's timeout signal will be emmited
 }
@@ -64,7 +64,7 @@ void Bullet::move()
         {
             //play explosion sound
             QMediaPlayer * explosion_sound = new QMediaPlayer();
-            explosion_sound -> setMedia(QUrl("qrc:/sounds/explosion.wav"));
+            explosion_sound -> setMedia(QUrl("qrc:/sounds/invaderkilled.wav"));
             explosion_sound -> play();
 
             //remove enemy & bullet

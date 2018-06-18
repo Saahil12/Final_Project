@@ -143,7 +143,7 @@ void Enemy::move()
 
                 //play explosion sound
                 QMediaPlayer * explosion_sound = new QMediaPlayer();
-                explosion_sound -> setMedia(QUrl("qrc:/sounds/explosion.wav"));
+                explosion_sound -> setMedia(QUrl("qrc:/sounds/invaderkilled.wav"));
                 explosion_sound -> play();
 
                 //remove & delete enemy and bullet

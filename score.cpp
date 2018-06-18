@@ -8,12 +8,12 @@ Score::Score(QGraphicsItem *parent) :QGraphicsTextItem(parent){
     //draw the text box
     setPlainText("Score:  " + QString::number(score));
     setDefaultTextColor(Qt::blue);
-    setFont(QFont("times",25)); //change this later
+    setFont(QFont("times",30));
 }
 
 void Score::increase_score()
 {
-    score++;
+    ++score;
     setPlainText("Score:  " + QString::number(score));
 }
 

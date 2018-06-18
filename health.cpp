@@ -12,7 +12,7 @@ Health::Health(QGraphicsItem *parent) :QGraphicsTextItem(parent){
     //draw the text box
     setPlainText("Health: " + QString::number(health));
     setDefaultTextColor(Qt::red);
-    setFont(QFont("times",25)); //change this later
+    setFont(QFont("times",30));
 }
 
 void Health::decrease_health()
@@ -23,7 +23,7 @@ void Health::decrease_health()
         health_loss -> setMedia(QUrl("qrc:/sounds/losing_health.mp3"));
         health_loss -> play();
 
-        health--;
+        --health;
         setPlainText("Health: " + QString::number(health));
     }
 
@@ -33,7 +33,7 @@ void Health::decrease_health()
         game_over -> setMedia(QUrl("qrc:/sounds/game_over.mp3"));
         game_over -> play();
 
-        health--;
+        --health;
         setPlainText("Health: " + QString::number(health));
 
         game -> gameOver();

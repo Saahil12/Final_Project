@@ -44,7 +44,7 @@ void Player::keyPressEvent(QKeyEvent *event)
 
         //play bullet sound
         QMediaPlayer * bullet_sound = new QMediaPlayer();
-        bullet_sound -> setMedia(QUrl("qrc:/sounds/bullet.wav"));
+        bullet_sound -> setMedia(QUrl("qrc:/sounds/shoot.wav"));
         bullet_sound -> play();
     }
 }
