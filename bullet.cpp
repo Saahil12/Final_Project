@@ -67,6 +67,9 @@ void Bullet::move()
             explosion_sound -> setMedia(QUrl("qrc:/sounds/invaderkilled.wav"));
             explosion_sound -> play();
 
+            //increase score;
+            game -> score -> increase_score();
+
             //remove enemy & bullet
             //scene() -> removeItem(this);
             scene() -> removeItem(*k1);
