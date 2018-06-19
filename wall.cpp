@@ -47,6 +47,7 @@ void Wall::defend()
             }
             else if (typeid(*x) == typeid(Bullet_Enemy2))
             {
+                   //Could not figure out how to change a QPixMapItem's image during run time so I created a new class as Wall2
                    Wall2*  wall2 = new Wall2(distance);
                    scene() -> addItem(wall2);
                    scene() -> removeItem(x);

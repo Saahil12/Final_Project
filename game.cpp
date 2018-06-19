@@ -138,11 +138,11 @@ void Game::restart()
 
 void Game::gameOver()
 {
-    //disable scene items
+    //disable player so enemies stop spawning
+    delete player;
 
     //pop up game over screen
     drawPanel(0,0,scene->width(),scene->height(),Qt::black,0.65);
-    //drawPanel(250,100,300,300,Qt::lightGray,0.75);
 
     //create game over title
     QGraphicsTextItem* title = new QGraphicsTextItem(QString("Game Over"));
@@ -163,7 +163,7 @@ void Game::gameOver()
     score->setPos(318,205);
     scene->addItem(score);
 
-    //create playagain button
+    //create play again button
     Button* playAgain = new Button(QString("Play Again"));
     playAgain -> setPos(300,275);
     scene -> addItem(playAgain);
