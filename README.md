@@ -7,7 +7,7 @@ This project uses Qtcreator and C++ to create a video game as a final project fo
 **Youtube link** : https://youtu.be/JGPBBT1KMjM
 
 ## Instructions
-Protect yourself and don't let any invaders by you! Use spacebar to shoot and left/right arrow keys to move. The viscous green invaders take 3 shots to kill while the soarin red invaders only take 1! However, be careful because the red invaders will fire back! Each segment of your defensive wall can take 2 hits before being completely destroyed. Your health starts off at 3 and decreases every time a green invader gets past you, a green invader hits you, or a red invaders bullet hits you. See how long you can protect your galaxy!!
+Protect yourself and don't let any invaders by you! Use spacebar to shoot and left/right arrow keys to move. The viscous green invaders take 3 shots to kill while the soarin red invaders only take 1! However, be careful because the red invaders will fire back! Each segment of your defensive wall can take 2 hits before being completely destroyed. Your health starts off at 3 and decreases every time a green invader gets past you, a green invader hits you, or a red invaders bullet hits you. See how many invaders you demolish as you protect your galaxy!!
 <br />
 
 ##  References
@@ -86,5 +86,8 @@ Protect yourself and don't let any invaders by you! Use spacebar to shoot and le
   **Progress:** I felt done with my game but I didn't like how it jumped straight into the game. So I did some research online on how to make buttons simply through QGraphicsRectItems and QGraphicsTextItem for my "main menu".  
 <img width="504" alt="screen shot 2018-06-17 at 6 33 25 pm" src="https://user-images.githubusercontent.com/38049808/41514615-4526310e-725d-11e8-94d4-bde8f5d2ab5f.png"> <br />
 <br />
-  
+
+  **Progress:** Added Game over screen when health reaches zero so player can view their score instead of the game just closing. Took the same steps I took in making the main menu.  
+  <img width="504" alt="screen shot 2018-06-19 at 12 47 52 am" src="https://user-images.githubusercontent.com/38049808/41583822-7b32bc2e-735a-11e8-9380-eaea2776c47f.png"> <br />
+<br />  
   
