@@ -73,7 +73,7 @@ Protect yourself and don't let any invaders by you! Use spacebar to shoot and le
 <br /> 
 
   **Commit:** Added Enemy2 <br />
-  **Progress:** I knew my game was going in the right track but it felt to easy and basic to me. Thus, I decided to add another enemy that fires back.  
+  **Progress:** I knew my game was going in the right track but it felt to easy and basic to me. Thus, I decided to add another enemy that moves across the screen and fires back.  
 <img width="504" alt="screen shot 2018-06-04 at 1 01 58 pm" src="https://user-images.githubusercontent.com/38049808/40938788-a4b0ddba-67f7-11e8-83c6-97486d42758b.png"> <br />
 <br />
 
