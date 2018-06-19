@@ -47,7 +47,7 @@ Protect yourself and don't let any invaders by you! Use spacebar to shoot and le
  
 ## Journal 
   **Commit:** Added a rect object to scene  
-  **Progress:** I had just started using Qt and didn't have a project idea yet so I used youtube videos (2nd reference) to understand the layout, slots, signals, and objects. Here I was experimenting with QGraphicsRectItem. 
+  **Progress:** I had just started using Qt and didn't have a project idea yet so I used youtube videos (2nd reference) to understand the layout of the scene, slots, signals, and objects. Here I was experimenting with QGraphicsRectItem. 
   <img width="509" alt="screen shot 2018-05-16 at 10 03 36 am" src="https://user-images.githubusercontent.com/38049808/40211124-a761534e-59fd-11e8-9449-00a6badaa3d7.png"> <br />
 <br />  
   
