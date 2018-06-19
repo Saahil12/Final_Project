@@ -79,7 +79,7 @@ Protect yourself and don't let any invaders by you! Use spacebar to shoot and le
 
   **Commit:** Added defense wall <br />
   **Progress:** At this point I wanted to add more unique touches to the game so I decided to make a wall that can take two hits before being completely destoyed. I started to implement topics we were going through in class such as iterators, lambda functons, and generic algorithms.  
-<img width="504" alt="screen shot 2018-06-11 at 6 19 45 pm" src="https://user-images.githubusercontent.com/38049808/41264929-5600f9d6-6da4-11e8-99e4-05189a2dfa4b.png"> <br />
+<img width="504" alt="screen shot 2018-06-19 at 12 21 28 am" src="https://user-images.githubusercontent.com/38049808/41582545-c75eb44e-7356-11e8-9f0c-e57b823ee91e.png"> <br />
 <br />
   
   **Commit:** Added Main Menu <br />
