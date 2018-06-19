@@ -46,36 +46,44 @@ Protect yourself and don't let any invaders by you! Use spacebar to shoot and le
  <br />
  
 ## Journal 
-  Commit: Added a rect object to scene  
+  **Commit:** Added a rect object to scene  
+  **Progress:** I had just started using Qt and didn't have a project idea yet so I used youtube videos (2nd reference) to understand the layout, slots, signals, and objects. Here I was experimenting with QGraphicsRectItem. 
   <img width="509" alt="screen shot 2018-05-16 at 10 03 36 am" src="https://user-images.githubusercontent.com/38049808/40211124-a761534e-59fd-11e8-9449-00a6badaa3d7.png"> <br />
 <br />  
   
-  Commit: Rect object responds to key events <br />
+  **Commit:** Rect object responds to key events <br />
+  **Progress:** At this point I continued to use youtube tutorials to get familiar with QKeyEvent and focusing at on one object at a time. Now I knew I wanted to create a video game where the user was able to move the player  
   <img width="468" alt="screen shot 2018-05-16 at 10 49 37 am" src="https://user-images.githubusercontent.com/38049808/40211264-8fee1dd6-59fe-11e8-95e8-9727502554c1.png"> <br />
 <br />
 
-  Commit: Rect shots smaller rect bullets <br />
+  **Commit:** Rect shots smaller rect bullets <br />
+  **Progress:** Here I got familiar with QTimer and with creating my own slots. AFter being able to make my rect shoot, I knew I wanted to create a space invaders type of game.  
   ![img_8557](https://user-images.githubusercontent.com/38049808/40869721-8b00b2b6-65d4-11e8-8140-94194d341ad2.jpg) <br />
 <br />
 
-  Commit: Created Enemies that spawn <br />
+  **Commit:** Created Enemies that spawn <br />
+  **Progress:** I knew I wanted enemies to spawn througout the game so I had them appear from the top and move down the screen. I decided to create as much of the game I had in mind with QGraphicsRectItem because I was unsure of how to add pictures yet.  
  <img width="504" alt="screen shot 2018-05-24 at 8 52 24 pm" src="https://user-images.githubusercontent.com/38049808/41580631-67a65c24-7350-11e8-84da-03f7f8f08acd.png"> <br />
 <br />
 
-  Commit: Created Health and Score <br />
-  Commit: Added pictures and backgrounds <br />  
+  **Commit:** Created Health and Score <br />
+  **Commit:** Added pictures and backgrounds <br />
+  **Progress:** I did some research on QGraphicsTextItem so that I could display the score and health. I also felt I was ready to add pictures so I did research on QPixMapItem and resource files. I changed all my rect items to pictures I found online (references above). Lastly, I learned about QMediaPlayer and added sounds throughout the interactions of the game.  
  <img width="504" alt="screen shot 2018-06-01 at 7 40 47 pm" src="https://user-images.githubusercontent.com/38049808/40869669-19299eaa-65d4-11e8-8036-f0dba2b3a5cf.png"> <br />
 <br /> 
 
-  Commit: Added Enemy2 <br />  
+  **Commit:** Added Enemy2 <br />
+  **Progress:** I knew my game was going in the right track but it felt to easy and basic to me. Thus, I decided to add another enemy that fires back.  
 <img width="504" alt="screen shot 2018-06-04 at 1 01 58 pm" src="https://user-images.githubusercontent.com/38049808/40938788-a4b0ddba-67f7-11e8-83c6-97486d42758b.png"> <br />
 <br />
 
-  Commit: Added defense wall <br />
+  **Commit:** Added defense wall <br />
+  **Progress:** At this point I wanted to add more unique touches to the game so I decided to make a wall that can take two hits before being completely destoyed. I started to implement topics we were going through in class such as iterators, lambda functons, and generic algorithms.  
 <img width="504" alt="screen shot 2018-06-11 at 6 19 45 pm" src="https://user-images.githubusercontent.com/38049808/41264929-5600f9d6-6da4-11e8-99e4-05189a2dfa4b.png"> <br />
 <br />
   
-  Commit: Added Main Menu <br />
+  **Commit:** Added Main Menu <br />
+  **Progress:** I felt done with my game but I didn't like how it jumped straight into the game. So I did some research online on how to make buttons simply through QGraphicsRectItems and QGraphicsTextItem for my "main menu".  
 <img width="504" alt="screen shot 2018-06-17 at 6 33 25 pm" src="https://user-images.githubusercontent.com/38049808/41514615-4526310e-725d-11e8-94d4-bde8f5d2ab5f.png"> <br />
 <br />
   
